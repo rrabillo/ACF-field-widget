@@ -3,7 +3,7 @@
 	
 	function initialize_field( $el ) {
 		
-		$(".acf-field-Widget .acf-checkbox-list").sortable();
+		$el.find('li').sortable();
 		
 	}
 	
@@ -55,7 +55,7 @@
 		
 		$(document).on('acf/setup_fields', function(e, postbox){
 			
-			$(postbox).find('.field[data-field_type="FIELD_NAME"]').each(function(){
+			$(postbox).find('.field[data-field_type="Widget"]').each(function(){
 				
 				initialize_field( $(this) );
 				

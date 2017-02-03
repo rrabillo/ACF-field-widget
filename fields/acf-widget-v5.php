@@ -217,7 +217,7 @@ class acf_field_widget extends acf_field {
 				
 				
 				// append HTML
-				$li .= '<li><label><input ' . acf_esc_attr( $atts ) . '/>' . $label . '</label></li>';
+				$li .= '<li class="ui-sortable-handle"><label><input ' . acf_esc_attr( $atts ) . '/>' . $label . '</label></li>';
 				
 			}
 		$field['class'] .= ' acf-checkbox-list';
@@ -253,9 +253,7 @@ class acf_field_widget extends acf_field {
 		
 		
 		// register & include JS
-		wp_register_script( 'acf-input-widget-libs', "{$url}assets/js/jquery-sortable-min.js", array('acf-input'), $version );
 		wp_register_script( 'acf-input-widget', "{$url}assets/js/input.js", array('acf-input'), $version );
-		wp_enqueue_script('acf-input-widget-libs');
 		wp_enqueue_script('acf-input-widget');
 		
 		
