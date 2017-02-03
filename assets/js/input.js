@@ -3,7 +3,7 @@
 	
 	function initialize_field( $el ) {
 		
-		$el.find('li').sortable();
+		$el.sortable({items: 'li'});
 		
 	}
 	

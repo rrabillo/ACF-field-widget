@@ -146,6 +146,8 @@ class acf_field_widget extends acf_field {
 		*/
 		
 		$field['value'] = acf_get_array($field['value'], false);
+		// $field['value'][0] = array('title' => $field['value'][0], 'order' => 1);
+		// $field['value'][1] = array('title' => $field['value'][1], 'order' => 2);
 		$choices = array();
 		$sidebar_id = $field['sidebar']; // tell our code what sidebar to look for
 		$sidebars_widgets = wp_get_sidebars_widgets(); // it'll do its thing and grab the widgets involved
@@ -160,10 +162,8 @@ class acf_field_widget extends acf_field {
 		}
 
 		$field['choices'] = acf_get_array($choices);
-
 		// hiden input
 		acf_hidden_input( array('name' => $field['name']) );
-		
 		
 		// vars
 		$i = 0;
@@ -217,7 +217,7 @@ class acf_field_widget extends acf_field {
 				
 				
 				// append HTML
-				$li .= '<li class="ui-sortable-handle"><label><input ' . acf_esc_attr( $atts ) . '/>' . $label . '</label></li>';
+				$li .= '<li><span class="acf-fc-layout-order">'.$i.'</span><label><input ' . acf_esc_attr( $atts ) . '/>' . $label . '</label></li>';
 				
 			}
 		$field['class'] .= ' acf-checkbox-list';
@@ -225,7 +225,7 @@ class acf_field_widget extends acf_field {
 		// return
 		echo '<ul ' . acf_esc_attr(array( 'class' => $field['class'] )) . '>' . $li . '</ul>';
 
-		
+		echo 'field value from render_field';
 	}
 	
 		
@@ -405,7 +405,7 @@ class acf_field_widget extends acf_field {
 	*  @return	$value
 	*/
 	
-	/*
+	
 	
 	function load_value( $value, $post_id, $field ) {
 		
@@ -413,7 +413,7 @@ class acf_field_widget extends acf_field {
 		
 	}
 	
-	*/
+	
 	
 	
 	/*
@@ -431,15 +431,17 @@ class acf_field_widget extends acf_field {
 	*  @return	$value
 	*/
 	
-	/*
+	
 	
 	function update_value( $value, $post_id, $field ) {
-		
+		echo 'update_value';
+		// d($value);	
+		// d($field);
 		return $value;
 		
 	}
 	
-	*/
+	
 	
 	
 	/*
